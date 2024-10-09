@@ -68,11 +68,6 @@ namespace SZGYA13C_SoftDrinks
 
             File.WriteAllLines(@"..\..\..\src\sweetening.txt", edesitoanagyok);
             
-            
-           
-
-
-
         }
 
         private void btnAjanlat_Click(object sender, RoutedEventArgs e)
@@ -83,26 +78,80 @@ namespace SZGYA13C_SoftDrinks
 
             var uditok = softDrink.Where(s => s.Nev.Contains(uditonev)).ToList();
 
-            //rossz
-            if (uditonev != null)
+            if (string.IsNullOrEmpty(uditonev) || !uditok.Any())
             {
-                foreach (var i in uditok)
-                {
-                    string[] udito = new string[] { $"{i.ToString()}" };
-
-                    File.WriteAllLines(@"..\..\..\src\offer.txt", udito);
-                }
-
-                MessageBox.Show($"{uditok.Count}db üdítő van, aminek átlag ára: {uditok.Average(s => s.Ar)}", "Sikeres", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Nincs ilyen üdítőnk!", "Sikeres", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {
-                MessageBox.Show($"Nincs ilyen üdítőnk!", "Sikeres", MessageBoxButton.OK, MessageBoxImage.Warning);
+                var uditoList = uditok.Select(i => i.ToString()).ToArray();
+
+                File.WriteAllLines(@"..\..\..\src\offer.txt", uditoList);
+
+                //foreach (var i in uditoList)
+                //{
+                //    File.WriteAllText($@"..\..\..\src\offer_{i.Split(' ').First()}.txt", i);
+                //}
+
+                MessageBox.Show($"{uditok.Count}db üdítő van, aminek átlag ára: {Math.Round(uditok.Average(s => s.Ar)), 2}", "Sikeres", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
             
 
 
+
+        }
+
+        private void ujFelvetelbtn_Click(object sender, RoutedEventArgs e)
+        {
+            //10.feladat 
+
+            if (string.IsNullOrEmpty(ujTb1.Text))
+            {
+                MessageBox.Show("Nincs megadva az üdítő neve!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (string.IsNullOrEmpty(ujTb2.Text))
+            {
+                MessageBox.Show("Nincs megadva az üdítő édesítése!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (string.IsNullOrEmpty(ujTb3.Text))
+            {
+                MessageBox.Show("Nincs megadva az üdítő ára!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (!int.TryParse(ujTb3.Text, out int resultAr))
+            {
+                MessageBox.Show("Ez nem Ár!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Warning);
+                ujTb3.Text = string.Empty;
+            }
+            else if (string.IsNullOrEmpty(ujTb4.Text))
+            {
+                MessageBox.Show("Nincs megadva az üdítő csomagolás típusa!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (string.IsNullOrEmpty(ujTb5.Text))
+            {
+                MessageBox.Show("Nincs megadva az üdítő gyümölcs tartalma!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (!int.TryParse(ujTb5.Text, out int resultGyum))
+            {
+                MessageBox.Show("Nem jó a gyümölcs tartalom!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Warning);
+                ujTb5.Text = string.Empty;
+            }
+            else
+            {
+                string[] ujDrink = [$"{ujTb1.Text};{ujTb2.Text};{ujTb3.Text};{ujTb4.Text};{ujTb5.Text};12"];
+
+                File.AppendAllLines(@"..\..\..\src\softDrinks.txt", ujDrink);
+
+                MessageBox.Show("Sikeres hozzáadás!", "SIKER", MessageBoxButton.OK, MessageBoxImage.Information);
+                ujTb1.Text = string.Empty;
+                ujTb2.Text = string.Empty;
+                ujTb3.Text = string.Empty;
+                ujTb4.Text = string.Empty;
+                ujTb5.Text = string.Empty;
+            }
+
+
+           
 
         }
     }

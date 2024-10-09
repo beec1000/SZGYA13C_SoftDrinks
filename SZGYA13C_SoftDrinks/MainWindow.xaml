@@ -67,7 +67,7 @@
                 <Label Content="Gyümölcs tartalom:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
                 <TextBox x:Name="ujTb5" Text="" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="180"/>
 
-                <Button x:Name="ujFelvetelbtn" Content="Új üdítő felvétele" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200"/>
+                <Button x:Name="ujFelvetelbtn" Content="Új üdítő felvétele" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Click="ujFelvetelbtn_Click"/>
 
             </Grid>
         </GroupBox>

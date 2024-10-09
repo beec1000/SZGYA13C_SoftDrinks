@@ -1,1 +1,14 @@
-Lipton Peach-Ginger Tea, szukralóz, 410, PET palack, 0, 12
+Sprite Light, szukralóz, 270, doboz, 0, 24
+Sprite Cranberry, aszpartám, 290, doboz, 0, 24
+Sprite Cranberry, stevia, 291, doboz, 0, 24
+Sprite Cranberry, szacharóz, 292, doboz, 0, 24
+Sprite Tropical, aszpartám, 300, doboz, 0, 24
+Sprite Zero Sugar, aszpartám, 310, doboz, 0, 24
+Sprite Ginger, aszpartám, 320, doboz, 5, 24
+Sprite Ginger, aszpartám, 321, doboz, 50, 24
+Sprite Ginger, aszpartám, 322, doboz, 15, 24
+Sprite Mint, aszpartám, 330, doboz, 0, 24
+Sprite Lemon, aszpartám, 340, doboz, 0, 24
+Sprite Zero Lime, aszpartám, 350, doboz, 0, 24
+Sprite Zero Cherry, aszpartám, 360, doboz, 0, 24
+Sprite Zero Mint, aszpartám, 370, doboz, 0, 24
