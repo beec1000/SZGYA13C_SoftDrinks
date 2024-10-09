@@ -62,6 +62,47 @@ namespace SZGYA13C_SoftDrinks
             var uditok = softDrink.GroupBy(s => s.Nev)
                                   .ToList();
 
+            //8.feladat
+
+            var edesitoanagyok = softDrink.GroupBy(s => s.EdesitoAnyag).Select(s => $"{s.Key} - {s.Count()}");
+
+            File.WriteAllLines(@"..\..\..\src\sweetening.txt", edesitoanagyok);
+            
+            
+           
+
+
+
+        }
+
+        private void btnAjanlat_Click(object sender, RoutedEventArgs e)
+        {
+            //9.feladat
+
+            string uditonev = tb1.Text;
+
+            var uditok = softDrink.Where(s => s.Nev.Contains(uditonev)).ToList();
+
+            //rossz
+            if (uditonev != null)
+            {
+                foreach (var i in uditok)
+                {
+                    string[] udito = new string[] { $"{i.ToString()}" };
+
+                    File.WriteAllLines(@"..\..\..\src\offer.txt", udito);
+                }
+
+                MessageBox.Show($"{uditok.Count}db üdítő van, aminek átlag ára: {uditok.Average(s => s.Ar)}", "Sikeres", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show($"Nincs ilyen üdítőnk!", "Sikeres", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            
+
+
 
         }
     }

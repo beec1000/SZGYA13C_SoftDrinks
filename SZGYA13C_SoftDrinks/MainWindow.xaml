@@ -35,7 +35,7 @@
         <Label Content="Gyártó:" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left"/>
         <TextBox x:Name="tb1" Text="" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Width="80" Margin="53,0,0,0"/>
 
-        <Button x:Name="btnAjanlat" Content="Árajánlat Készítése" Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150"/>
+        <Button x:Name="btnAjanlat" Content="Árajánlat Készítése" Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Click="btnAjanlat_Click"/>
 
         <GroupBox Header="Új termék felvétele" Grid.Column="1" Grid.Row="1" Grid.RowSpan="5">
             <Grid>
